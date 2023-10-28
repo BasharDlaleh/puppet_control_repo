@@ -2,7 +2,7 @@
 a contrl repo for puppet configuration
 
 
-# there are a lot of ways to orchestrate puppet acroos different nodes:
+## there are a lot of ways to orchestrate puppet acroos different nodes:
 1. MCollective which operates on a publish-subscribe model where a single server, generally your Puppet master, maintains a queue such as ActiveMQ or RabbitMQ. Any other nodes publish and subscribe data to that queue server. This has the advantage of being tolerant of spotty network connections. If a node isn't able to reach the queue, it will still be able to receive any messages published to it once it was able to connect. The major downside is that it's impossible to ensure that a machine has actually received the message
 
 2. using Ansible to ssh to nodes and run the agent periodically, Ansible is not as good as Puppet in managing the desired state of nodes, so many companies use Puppet for manging the disred state of nodes and Ansible for orchestration and procedural imperative tasks. 
@@ -10,3 +10,11 @@ a contrl repo for puppet configuration
 3. using SSH alone to do the same as Ansible (works well for small installations)
 
 4. using Puppet Bolt which is designed specifically for puppet ocherstration and integrates well for PuppetDB
+
+## Facter
+Facter is the tool that Puppet uses to gather facts about a node, in order to figure out what needs to done on that node. Facter is a standalone tool, so you can use it in other scripts, but it's bundled with Puppet because they're so closely integrated. First, let's try running Facter from the command line.
+
+`#facter `  returns all facts about the node
+`#facter fact` returns only one fact about the node
+
+we can use facts in the puppet config just like variables $fact_name
