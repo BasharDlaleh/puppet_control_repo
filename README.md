@@ -46,3 +46,7 @@ we can use facts in the puppet config just like variables $fact_name
 
 ### How Puppet code works
 Puppet language is just a DSL built on top of Ruby programming language, so when a puppet agent runs the facter sends all the agents facts to the master which converts puppet code to Ruby and compiles the Ruby code and generates a catalog (compiled code unreadably by humans )which the agent node executes on itself.
+
+### Modules
+just like Ansible is written in Python, Puppet is written in Ruby so if you want to create a new module and push it to the forge.puppet.com you need to write Ruby code in a specific folders hirearchy like lib, manifests, examples, metdata.json....etc
+Puppet offers a helper tool for writing modules, called the Puppet Development Kit. It will set up all the essentials we just went over and a lot more. To learn more, go to github.com/puppetlabs/pdk.
