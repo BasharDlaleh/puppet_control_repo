@@ -17,4 +17,18 @@ Facter is the tool that Puppet uses to gather facts about a node, in order to fi
 `#facter `  returns all facts about the node
 `#facter fact` returns only one fact about the node
 
+## Agent Nodes
+in the course the instructor used a puppet module called dockeragent to install docker containers on the master itself to act as agent nodes for a lab instead of creatin separate VMs to act as agent nodes, he created the below profile and included it in the master node role like this:
+
+class profile::agent_nodes {
+  include dockeragent
+  dockeragent::node { 'web.puppet.vm': }
+  dockeragent::node { 'db.puppet.vm': }
+}
+
+class role::master_server {
+  include profile::base
+  include profile::agent_nodes
+}
+
 we can use facts in the puppet config just like variables $fact_name
