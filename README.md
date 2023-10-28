@@ -42,3 +42,6 @@ class role::master_server {
 }
 
 we can use facts in the puppet config just like variables $fact_name
+
+### How Puppet code works
+Puppet language is just a DSL built on top of Ruby programming language, so when a puppet agent runs the facter sends all the agents facts to the master which converts puppet code to Ruby and compiles the Ruby code and generates a catalog (compiled code unreadably by humans )which the agent node executes on itself.
