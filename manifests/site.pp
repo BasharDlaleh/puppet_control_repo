@@ -34,3 +34,9 @@ $files_without_paths.each |String $file| {
     # unless is the opposite of onlyif, if the command returns something it's considered false
     #unless   => "/bin/which apache2",
   }
+}
+
+# a node here will onyl match one node and there is no inheritance in nodes definitions this means that the master node below will no longer match the default node config above
+node 'master.puppet.vm' {
+  include role::master_server
+}
