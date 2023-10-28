@@ -36,8 +36,18 @@ $files_without_paths.each |String $file| {
   }
 }
 
-# a node here will onyl match one node and there is no inheritance in nodes definitions this means that the master node below will no longer match the default node config above
+# a node here will only match one node and there is no inheritance in nodes definitions this means that the master node below will no longer match the default node config above
 # default is only matched when a node doesn't match any other node declaration. Some Puppet users will even set the default node to trigger an error, so they'll immediately know if a node didn't match anything else.
 node 'master.puppet.vm' {
   include role::master_server
 }
+
+# below we are definig a regular expression for matching nodes names instead of defining them one by one, ex. the first one will match any node name that starts with 'web'
+node /^web/ {
+  include role::app_server
+}
+
+node /^db/ {
+  include role::db_server
+}
+
