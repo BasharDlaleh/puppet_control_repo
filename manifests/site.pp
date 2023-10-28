@@ -33,6 +33,11 @@ $files_without_paths.each |String $file| {
     # unless is the opposite of onlyif, if the command returns something it's considered false
     #unless   => "/bin/which apache2",
   }
+
+  file {"/tmp/fqdn.txt":
+    ensure  => file,
+    content => "the fully qualified dns name of this node is ${fqdn}",
+  }
 }
 
 # a node here will only match one node and there is no inheritance in nodes definitions this means that the master node below will no longer match the default node config above
