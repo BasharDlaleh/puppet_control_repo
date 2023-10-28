@@ -25,8 +25,7 @@ $files_without_paths.each |String $file| {
     owner   => 'root',
   }
 */
-}
-  
+
   exec {"test":
     command  => "/bin/echo apache2 is installed > /tmp/status.txt",
     # onlyif is an if condition if the command doesn't return anything the condition is false and the above command won't be executed
