@@ -15,7 +15,8 @@ a contrl repo for puppet configuration
 Facter is the tool that Puppet uses to gather facts about a node, in order to figure out what needs to done on that node. Facter is a standalone tool, so you can use it in other scripts, but it's bundled with Puppet because they're so closely integrated. First, let's try running Facter from the command line.
 
 `#facter `  returns all facts about the node
-`#facter fact` returns only one fact about the node
+`#facter fqdn` returns only one fact about the node
+`#facter networking.interfaces.eth1.bindings.0.address` here we're getting the ip of eth1 note the use of 0 for accessing the items of an array
 
 ## Agent Nodes
 in the course the instructor used a puppet module called dockeragent to install docker containers on the master itself to act as agent nodes for a lab instead of creatin separate VMs to act as agent nodes, he created the below profile and included it in the master node role like this:
