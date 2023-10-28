@@ -25,6 +25,15 @@ class profile::agent_nodes {
   include dockeragent
   dockeragent::node { 'web.puppet.vm': }
   dockeragent::node { 'db.puppet.vm': }
+  ###### note that he hardcoded the ip addresses here for the ssh profile instead of adding them in /etc/hosts file of the master
+  host {‘web.puppet.vm’:
+    ensure => present,
+    ip => ‘172.18.0.2’,
+  }
+  host {‘db.puppet.vm’:
+    ensure => present,
+    ip => ‘172.18.0.3’,
+  }
 }
 
 class role::master_server {
