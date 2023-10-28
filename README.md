@@ -1,5 +1,5 @@
 # puppet_control_repo
-a contrl repo for puppet configuration
+a control repo for puppet configuration
 
 
 ## there are a lot of ways to orchestrate puppet acroos different nodes:
@@ -21,7 +21,8 @@ Facter is the tool that Puppet uses to gather facts about a node, in order to fi
 ## Agent Nodes
 in the course the instructor used a puppet module called dockeragent to install docker containers on the master itself to act as agent nodes for a lab instead of creatin separate VMs to act as agent nodes, he created the below profile and included it in the master node role like this:
 
-```class profile::agent_nodes {
+```
+class profile::agent_nodes {
   include dockeragent
   dockeragent::node { 'web.puppet.vm': }
   dockeragent::node { 'db.puppet.vm': }
