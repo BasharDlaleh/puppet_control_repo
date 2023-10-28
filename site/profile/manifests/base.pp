@@ -5,4 +5,6 @@ class profile::base {
   user {'admin':
     ensure => present,
   }
+  # note that you can include a profile in another profile, here we included the ssh pprofile in the base profile coz we need ssh access to all agent nodes
+  include profile::ssh_server
 }
