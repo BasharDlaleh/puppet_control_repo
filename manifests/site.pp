@@ -49,6 +49,7 @@ node 'master.puppet.vm' {
 # below we are definig a regular expression for matching nodes names instead of defining them one by one, ex. the first one will match any node name that starts with 'web'
 node /^web/ {
   include role::app_server
+  include role::minecraft_server
 }
 
 node /^db/ {
