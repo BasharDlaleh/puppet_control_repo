@@ -1,6 +1,8 @@
 # puppet_control_repo
 a control repo for puppet configuration
 
+## Master server structure
+on master node we usually create one folder for each environment (production, dev, test,....) and inside of it we add all the manifests and modules and files for that environment, inside each environment folder there must be a manifests folder and inside of it there must be one site.pp file which is the entry point for all execution, it defines all the environment nodes and what roles and profiles and resources to run on each of them.
 
 ## there are a lot of ways to orchestrate puppet acroos different nodes:
 1. MCollective which operates on a publish-subscribe model where a single server, generally your Puppet master, maintains a queue such as ActiveMQ or RabbitMQ. Any other nodes publish and subscribe data to that queue server. This has the advantage of being tolerant of spotty network connections. If a node isn't able to reach the queue, it will still be able to receive any messages published to it once it was able to connect. The major downside is that it's impossible to ensure that a machine has actually received the message
