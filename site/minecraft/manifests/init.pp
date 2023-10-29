@@ -1,6 +1,6 @@
 class minecraft (
-  # the variables we put here are exposed to the outside so we can override them when we use the class
-  $url = 'https://launcher.mojang.com/mc/game/1.12.2/server/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar'
+  # the variables we put here are exposed to the outside so we can override them when we use the class, note the comma between the variables
+  $url = 'https://launcher.mojang.com/mc/game/1.12.2/server/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar',
   $install_dir = '/opt/minecraft'
 )
 {
