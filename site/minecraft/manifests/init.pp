@@ -27,7 +27,7 @@ class minecraft {
     content => 'puppet:///modules/minecraft/minecraft.service',
   }
 
-  service {'minecraft'
+  service {'minecraft':
     ensure  => running,
     enabled => true,
     require => [ Package['default-jre'], File['${install_dir}/eula.txt'], File['/etc/systemd/system/minecraft.service'] ]
