@@ -1,6 +1,6 @@
 class minecraft {
 
-  $source = 'https://piston-data.mojang.com/v1/objects/5b868151bd02b41319f54c8d4061b8cae84e665c/server.jar'
+  $url = 'https://piston-data.mojang.com/v1/objects/5b868151bd02b41319f54c8d4061b8cae84e665c/server.jar'
   $install_dir = '/opt/minecraft'
 
   file {$install_dir:
@@ -9,7 +9,7 @@ class minecraft {
 
   file {"${install_dir}/minecraft_server.jar":
     ensure => file,
-    source => $source,
+    source => $url,
     before => Service['minecraft'],
   }
 
@@ -24,7 +24,7 @@ class minecraft {
 
   file {'/etc/systemd/system/minecraft.service':
     ensure  => file,
-    content => 'puppet:///modules/minecraft/minecraft.service',
+    source => 'puppet:///modules/minecraft/minecraft.service',
   }
 
   service {'minecraft':
