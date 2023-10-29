@@ -26,7 +26,8 @@ class minecraft (
 
   file {'/etc/systemd/system/minecraft.service':
     ensure  => file,
-    # here the file content is fetched from the templates folder using the epp built-in function in puppet, the templates folder is inside the module folder and it's useful for customizing values inside static files
+    # here the file content is fetched from the templates folder using the epp built-in function in puppet, the templates folder is inside the module folder and it's useful for customizing file values instead of using static files from the files folder
+    # so here we are no longer using the file minecraft.service from the files folder
     content => epp('minecraft/minecraft.service.epp', {
       install_dir => $install_dir,
     }),
