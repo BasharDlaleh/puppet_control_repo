@@ -22,7 +22,7 @@ class minecraft {
     content => "eula=true",
   }
 
-  file {'/etc/systemd/system/minecraft.service'
+  file {'/etc/systemd/system/minecraft.service':
     ensure  => file,
     content => 'puppet:///modules/minecraft/minecraft.service',
   }
